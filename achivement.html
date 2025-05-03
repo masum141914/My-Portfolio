@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PAGE_TITLE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      width: 100%; height: 100%;
+      background: #000; overflow: hidden;
+      font-family: 'Courier New', monospace;
+      color: #00ff00;
+    }
+    #particles-js {
+      position: absolute; width: 100%; height: 100%; z-index: 0;
+    }
+    .menu {
+      position: absolute; top: 20px; right: 30px; z-index: 2;
+      display: flex; gap: 15px;
+    }
+    .menu a {
+      color: #00ff00; text-decoration: none; font-size: 0.9rem;
+      padding: 5px 10px; border: 1px solid #00ff00;
+      border-radius: 4px; transition: 0.2s;
+    }
+    .menu a:hover {
+      background: #00ff00; color: #000;
+    }
+    .content {
+      position: relative; z-index: 1;
+      height: 100vh; display: flex;
+      flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0,0,0,0.4); border-radius: 8px;
+      margin: auto; max-width: 600px;
+    }
+    h1 {
+      font-size: 3rem; letter-spacing: 4px; margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.2rem; margin-bottom: 1.5rem;
+    }
+    .socials {
+      display: flex; gap: 20px;
+    }
+    .socials a {
+      color: #00ff00; font-size: 1.5rem;
+      transition: 0.3s;
+    }
+    .socials a:hover {
+      transform: scale(1.2); color: #00cc00;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="particles-js"></div>
+
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="whoami.html">Who am I?</a>
+    <a href="myjourney.html">My Journey</a>
+    <a href="achivement.html">Achievement</a>
+    <a href="myplan.html">My Plan</a>
+    <a href="honorablemention.html">Honorable Mention</a>
+  </div>
+
+  <div class="content">
+    <h1 id="hacker-name">_</h1>
+    <p>Coming Soon...</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 100 },
+        color: { value: "#00ff00" },
+        shape: { type: "circle" },
+        opacity: { value: 0.4 },
+        size: { value: 2 },
+        move: { enable: true, speed: 1.5, out_mode: "out" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: false },
+          resize: true
+        }
+      }
+    });
+
+    const nameEl = document.getElementById("hacker-name"),
+          finalName = "Achivement",
+          letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()+{}?";
+    let iteration = 0;
+    const interval = setInterval(() => {
+      nameEl.innerText = finalName
+        .split("")
+        .map((char, idx) => idx < iteration ? finalName[idx] : letters[Math.floor(Math.random() * 50)])
+        .join("");
+      if (iteration >= finalName.length) clearInterval(interval);
+      iteration += 0.5;
+    }, 50);
+    setTimeout(() => iteration = 0, 500);
+  </script>
+</body>
+</html>
