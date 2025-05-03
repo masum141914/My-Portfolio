@@ -96,12 +96,12 @@
 
     const nameEl = document.getElementById("hacker-name"),
           finalName = "Honorable Mentions ",
-          letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()+{}?";
+          letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()+{}?";
     let iteration = 0;
     const interval = setInterval(() => {
       nameEl.innerText = finalName
         .split("")
-        .map((char, idx) => idx < iteration ? finalName[idx] : letters[Math.floor(Math.random() * 50)])
+        .map((char, idx) => idx < iteration ? finalName[idx] : letters[Math.floor(Math.random() * 30)])
         .join("");
       if (iteration >= finalName.length) clearInterval(interval);
       iteration += 0.5;
